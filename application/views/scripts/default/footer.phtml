@@ -8,17 +8,21 @@
 					<?php 
 					//powered is an array of array
 					/*$this->powereds = [
-					 *     ['img_name'=>'img_size (wxh)'],
+					 *     'img_name',
 					 * ]
 					 */
 					if(isset($this->powereds) && $this->powereds != '')
 					{
 					    if(is_array($this->powereds))
 					    {
-					        foreach($this->powereds as $powered)
+					        foreach($this->powereds as $image)
 					        {
-					            echo $this->img()
+					            echo $this->img('/images/'.$image, array('height'=>'50px'));
 					        }
+					    }
+					    else
+					    {
+					        echo $this->img('/images/'.$this->powereds, array('height'=>'50px'));
 					    }
 					}
 					    
