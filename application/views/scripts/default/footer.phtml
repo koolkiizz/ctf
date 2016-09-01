@@ -1,4 +1,30 @@
 <br>
 <footer>
-	<p align="center">Copyright &copy; Seven 2016</p>
+	<div class="wrapper">
+		<div id="footer">
+			<div class="container clearfix">
+				<div class="copy">Created by <?php echo $this->img('/images/seven.png', array('width'=>'100px'));?> - Copyright &copy; Seven 2016</div>
+				<div class="powered">Powered by 
+					<?php 
+					//powered is an array of array
+					/*$this->powereds = [
+					 *     ['img_name'=>'img_size (wxh)'],
+					 * ]
+					 */
+					if(isset($this->powereds) && $this->powereds != '')
+					{
+					    if(is_array($this->powereds))
+					    {
+					        foreach($this->powereds as $powered)
+					        {
+					            echo $this->img()
+					        }
+					    }
+					}
+					    
+					    ?>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>

@@ -38,7 +38,7 @@ class IndexController extends Zend_Controller_Action
         //initializing for header
         $this->headers = [
             'page_title' => 'Sample page',
-            'custom_css' => '',
+            'custom_css' => ['style.css','footer.css'],
             'custom_js' => '',
         ];
         $this->view->headers = $this->headers;
