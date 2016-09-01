@@ -1,0 +1,76 @@
+<?php
+echo $this->doctype('HTML5');
+?>
+<html>
+<head>
+<?php echo $this->headTitle($this->headers['page_title']);?>
+<?php 
+//initializing css
+$this->headLink()->appendStylesheet($this->baseUrl().'/css/bootstrap.min.css');
+if(isset($this->headers['custom_css']) && $this->headers['custom_css'] != '')
+{
+    if(is_array($this->headers['custom_css']))
+    {
+        foreach($this->headers['custom_css'] as $css)
+        {
+            $this->headLink()->appendStylesheet($this->baseUrl().'/css/'.$css);
+        }
+    }
+    else
+    {
+        $this->headLink()->appendStylesheet($this->baseUrl().'/css/'.$this->headers['custom_css']);
+    }
+}
+echo $this->headLink();
+//initializing js
+if(isset($this->headers['custom_js']) && $this->headers['custom_js'] != '')
+{
+    if(is_array($this->headers['custom_js']))
+    {
+        foreach($this->headers['custom_js'] as $js)
+        {
+            $this->headScript()->appendFile($this->baseUrl().'/js/'.$js);
+        }
+    }
+    else 
+    {
+        $this->headScript()->appendFile($this->baseUrl().'/js/'.$this->headers['custom_js']);
+    }
+}
+if($this->headScript())
+{
+    echo $this->headScript();
+}
+//initializing meta header
+$this->headMeta()->appendName('Content-Type', 'text/html; charset=UTF-8');
+if(isset($this->headers['custom_meta']) && $this->headers['custom_meta'] != '')
+{
+    if(is_array($this->headers['custom_meta']))
+    {
+        foreach($this->headers['custom_meta'] as $key => $content)
+        {
+            $this->headMeta()->appendName($key,$content);
+        }
+    }
+    else
+    {
+        
+    }
+}
+echo $this->headMeta();
+?>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="<?php echo $this->baseUrl();?>">Zend Framework</a>
+				</div>
+				<ul class="navbar-nav nav">
+					
+				</ul>
+			</div>
+		</nav>
+	</header>
+</body>
