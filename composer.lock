@@ -1,0 +1,110 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "78bba2ef7f40dc564a0a20217356efb2",
+    "content-hash": "c5f31b9bacdcbbb9039fa68f828036c9",
+    "packages": [
+        {
+            "name": "cgsmith/zf1-recaptcha-2",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cgsmith/zf1-recaptcha-2.git",
+                "reference": "1e9b452d9303ac8a23118b35ba4a0c209b7bd7af"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cgsmith/zf1-recaptcha-2/zipball/1e9b452d9303ac8a23118b35ba4a0c209b7bd7af",
+                "reference": "1e9b452d9303ac8a23118b35ba4a0c209b7bd7af",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0",
+                "zendframework/zendframework1": "~1.12"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Cgsmith\\": "src/Cgsmith"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Smith",
+                    "email": "chris@cgsmith.net",
+                    "homepage": "http://www.cgsmith.net"
+                }
+            ],
+            "description": "A quick package to assist with using Google reCAPTCHA version 2 with ZF1",
+            "keywords": [
+                "ZF1",
+                "google",
+                "recaptcha",
+                "zend"
+            ],
+            "time": "2016-04-26 14:00:07"
+        },
+        {
+            "name": "zendframework/zendframework1",
+            "version": "1.12.19",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/zf1.git",
+                "reference": "be2113109240b6682d90c25a05b6ae79927954f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/zf1/zipball/be2113109240b6682d90c25a05b6ae79927954f3",
+                "reference": "be2113109240b6682d90c25a05b6ae79927954f3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.11"
+            },
+            "require-dev": {
+                "phpunit/dbunit": "1.3.*",
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.12.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Zend_": "library/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "library/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Zend Framework 1",
+            "homepage": "http://framework.zend.com/",
+            "keywords": [
+                "ZF1",
+                "framework"
+            ],
+            "time": "2016-07-13 15:11:57"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

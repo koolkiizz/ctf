@@ -1,0 +1,15 @@
+<section>
+    <div class="form-register">
+        <?php if(!isset($this->successful)) : ?>
+            <?php if(isset($this->message)) {
+                echo '<div class="alert alert-danger">'.$this->message.'</div>';
+            } 
+        ?>
+        <h1 align="center">ĐĂNG KÝ</h1>
+        <?php echo $this->form;?>
+        <?php else: 
+            echo '<div class="alert alert-success">'.$this->successful.'</div>';
+            endif;
+        ?>
+    </div>
+</section>

@@ -14,13 +14,13 @@ Setting Up Your VHOST
 The following is a sample VHOST you might want to consider for your project.
 
 <VirtualHost *:80>
-   DocumentRoot "C:/xampp5/htdocs/zend1/public"
+   DocumentRoot "C:/xampp5/htdocs/ctf1/public"
    ServerName .local
 
    # This should be omitted in the production environment
    SetEnv APPLICATION_ENV development
 
-   <Directory "C:/xampp5/htdocs/zend1/public">
+   <Directory "C:/xampp5/htdocs/ctf1/public">
        Options Indexes MultiViews FollowSymLinks
        AllowOverride All
        Order allow,deny

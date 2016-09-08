@@ -1,0 +1,27 @@
+{
+  "name": "cgsmith/zf1-recaptcha-2",
+  "description": "A quick package to assist with using Google reCAPTCHA version 2 with ZF1",
+  "keywords": [
+    "zf1",
+    "zend",
+    "recaptcha",
+    "google"
+  ],
+  "require": {
+    "php": ">=5.5.0",
+    "zendframework/zendframework1": "~1.12"
+  },
+  "autoload": {
+    "psr-4": {
+      "Cgsmith\\": "src/Cgsmith"
+    }
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chris Smith",
+      "email": "chris@cgsmith.net",
+      "homepage": "http://www.cgsmith.net"
+    }
+  ]
+}

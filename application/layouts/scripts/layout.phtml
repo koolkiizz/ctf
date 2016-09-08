@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><?php echo $this->headers['page_title'];?></title>
+<?php 
+//initializing css
+$this->headLink()->appendStylesheet(BASE_URL.'/css/bootstrap.min.css');
+$this->headLink()->appendStylesheet(BASE_URL.'/css/style.css');
+$this->headLink()->appendStylesheet(BASE_URL.'/css/footer.css');
+$this->headLink()->appendStylesheet(BASE_URL.'/css/lato-font.min.css');
+$this->headLink()->appendStylesheet(BASE_URL.'/css/font-awesome.min.css');
+if(isset($this->headers['custom_css']) && $this->headers['custom_css'] != '')
+{
+    if(is_array($this->headers['custom_css']))
+    {
+        foreach($this->headers['custom_css'] as $css)
+        {
+            $this->headLink()->appendStylesheet(BASE_URL.'/css/'.$css);
+        }
+    }
+    else
+    {
+        $this->headLink()->appendStylesheet(BASE_URL.'/css/'.$this->headers['custom_css']);
+    }
+}
+echo $this->headLink();
+//initializing js
+$this->headScript()->appendFile(BASE_URL.'/js/bootstrap.min.js');
+$this->headScript()->appendFile(BASE_URL.'/js/jquery.min.js');
+$this->headScript()->appendFile(BASE_URL.'/js/main.js');
+$this->headScript()->appendFile(BASE_URL.'/js/smoothscroll.js');
+if(isset($this->headers['custom_js']) && $this->headers['custom_js'] != '')
+{
+    if(is_array($this->headers['custom_js']))
+    {
+        foreach($this->headers['custom_js'] as $js)
+        {
+            $this->headScript()->appendFile(BASE_URL.'/js/'.$js);
+        }
+    }
+    else 
+    {
+        $this->headScript()->appendFile(BASE_URL.'/js/'.$this->headers['custom_js']);
+    }
+}
+if($this->headScript())
+{
+    echo $this->headScript();
+}
+//initializing meta header
+$this->headMeta()->appendName('Content-Type', 'text/html; charset=UTF-8');
+if(isset($this->headers['custom_meta']) && $this->headers['custom_meta'] != '')
+{
+    if(is_array($this->headers['custom_meta']))
+    {
+        foreach($this->headers['custom_meta'] as $key => $content)
+        {
+            $this->headMeta()->appendName($key,$content);
+        }
+    }
+    else
+    {
+        
+    }
+}
+echo $this->headMeta();
+?>
+</head>
+<body data-spy="scroll" data-offset="0" data-target="#theMenu" style="<?php if($this->bg == 1): ?>background: url(/images/asian_girl_background.png) no-repeat center top; <?php else: ?>background: #000 url(/images/programming-wallpaper-1920x1080.png) no-repeat center top; <?php endif;?>background-size: 100%;">
+
+    <?php if($this->bg == 1): ?><div class="wrapper"><?php endif;?>
+    <div class="wrapper_body">
+        <!-- Menu -->
+        <nav class="menu" id="theMenu">
+            <div class="menu-wrap">
+                <h1 class="logo"><a href="<?php echo BASE_URL;?>">Minimal</a></h1>
+                <i class="fa fa-times menu-close" aria-hidden="true"></i>
+                <a href="<?php echo BASE_URL;?>" class="smoothScroll">Trang chủ</a>
+                <a href="<?php echo BASE_URL;?>/about" class="smoothScroll">Giới thiệu</a>
+                <a href="<?php echo BASE_URL;?>/login" class="smoothScroll">Đăng nhập</a>
+                <a href="<?php echo BASE_URL;?>/register" class="smoothScroll">Đăng ký</a>
+            </div>
+            
+            <!-- Menu button -->
+            <div id="menuToggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+        </nav>
+        <?php echo $this->layout()->content;?>
+	</div>
+	<footer>
+		<div id="footer">
+			<div class="container clearfix">
+				<div class="copy">Created by <?php echo $this->img('/images/seven.png', array('width'=>'100px'));?> - Copyright &copy; Seven 2016</div>
+				<div class="powered">Powered by 
+					<?php 
+					//powered is an array of array
+					/*$this->powereds = [
+					 *     'img_name',
+					 * ]
+					 */
+					if(isset($this->powereds) && $this->powereds != '')
+					{
+					    if(is_array($this->powereds))
+					    {
+					        foreach($this->powereds as $image)
+					        {
+					            echo $this->img('/images/'.$image, array('height'=>'50px'));
+					        }
+					    }
+					    else
+					    {
+					        echo $this->img('/images/'.$this->powereds, array('height'=>'50px'));
+					    }
+					}
+					    
+					    ?>
+				</div>
+			</div>
+		</div>
+	</footer>
+<?php if($this->bg == 1): ?></div><?php endif;?>
+</body>
+</html>

@@ -1,11 +1,22 @@
 @CHARSET "ISO-8859-1";
+footer {
+	/*clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;*/
+    margin-top: 30px;
+}
 #footer {
 	border-radius: 3px;
 	padding: 15px 0;
 	width: 100%;
+	background: rgba(255,255,255, .6);
+	color: black;
 }
 .copy {
 	float: left;
+	min-width: 400px;
 }
 .powered {
 	float:right;
