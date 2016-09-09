@@ -45,7 +45,7 @@ class Core_UserHandle
 			'email' 			=> $user->email,
 			'password' 			=> $user->password,
 			'username' 			=> $user->username,
-			'last_activate' 	=> $user->last_activate,
+			'last_active' 	=> $user->last_activate,
 			'activated' 		=> $user->activated,
 			'ip' 				=> $user->ip,
 			'time_created' 		=> $user->time_created,
@@ -53,8 +53,15 @@ class Core_UserHandle
 			'level' 			=> $user->level,
 			'token' 			=> $user->token
 		);
+		//debug 3
+		// print_r($insert);
+		// var_dump($user);
+		// die("debug 3");
 		$db = (new Core_Database())->connect();
-		if($db->insert('users', $insert))
+		//debug 6
+		// var_dump($db);
+		// die();
+		if(($query = $db->insert('users', $insert)))
 		{
 			return true;
 		}

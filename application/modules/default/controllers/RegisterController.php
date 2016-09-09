@@ -1,16 +1,15 @@
 <?php
 
-class Default_RegisterController extends Zend_Controller_Action
+class Default_RegisterController extends Core_Controller
 {
 
+    protected $language, $config;
     public function init()
     {
         /* Initialize action controller here */
-        $this->view->headers = [
-        	'page_title' => 'Đăng ký',
-            'custom_css' => 'register.css',
-            'custom_js' => '',
-        ];
+        $this->language = $this->get_language();
+
+        $this->view->headers = $this->get_header($this->language->_("Register_page"), 'register.css');
         $this->view->bg = 2;
     }
 
@@ -42,33 +41,40 @@ class Default_RegisterController extends Zend_Controller_Action
                     if($password === $repassword) {
                         $user = new Core_User();
                         $user_handle = new Core_UserHandle();
+                        //debug 1 
+                        //die("input everything is ok!");
                         if(!$user_handle->get_user($email, $password) && !$user_handle->get_user($username, $password))
                         {
+                            //debug 2 
+                            //die("user is not exist!");
                             $user->email         = $email;
                             $user->username      = $username;
                             $user->password      = md5($password);
                             $user->last_activate = null;
                             $user->activated     = 0;
                             $user->ip            = null;
-                            $user->time_created  = strtotime();
+                            $user->time_created  = strtotime("now");
                             $user->competition   = null;
                             $user->level         = 1;
-                            $user->token         = md5($password);
+                            $user->token         = md5($username);
                             if($user_handle->add_User($user)) {
-                                $this->view->successful = "Successfull!";
+                                $this->view->successful = $this->language->_("Register_page_form_submit_success");
                             }
                             else {
-                                $this->view->message = "Something was wrong!";
+                                $this->view->message = $this->language->_("Register_page_form_submit_something_wrong");
                             }
                         }
-            			
+            			else
+                        {
+                            $this->view->message = $this->language->_("Register_page_form_submit_user_exist");
+                        }
                     }
                     else {
-                        $this->view->message = "Password doesn't match!";
+                        $this->view->message = $this->language->_("Register_page_form_submit_password_not_match");
                     }
         		}
         		else {
-        			$this->view->message = "Invail Email!";
+        			$this->view->message = $this->language->_("Register_page_form_submit_invail_email");
         		}
 	        	
 	        }

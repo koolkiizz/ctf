@@ -15,9 +15,14 @@ class Core_Database
             'password' => $config->database->password,
             'dbname' => $config->database->dbname
         ];
+        //debug 4
+        // print_r($database);
+        // die();
         try {
             $db = Zend_Db::factory('Pdo_Mysql', $database);
             $db->getConnection();
+            //debug 5
+            //die("Database Connection is ok!");
             return $db;
         } catch(Zend_db_Adapter_Exception $es)
         {

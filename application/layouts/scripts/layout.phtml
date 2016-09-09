@@ -73,12 +73,12 @@ echo $this->headMeta();
         <!-- Menu -->
         <nav class="menu" id="theMenu">
             <div class="menu-wrap">
-                <h1 class="logo"><a href="<?php echo BASE_URL;?>">Minimal</a></h1>
+                <h1 class="logo"><a href="<?php echo BASE_URL;?>"><?php echo $this->headers['site_name'];?></a></h1>
                 <i class="fa fa-times menu-close" aria-hidden="true"></i>
-                <a href="<?php echo BASE_URL;?>" class="smoothScroll">Trang chủ</a>
-                <a href="<?php echo BASE_URL;?>/about" class="smoothScroll">Giới thiệu</a>
-                <a href="<?php echo BASE_URL;?>/login" class="smoothScroll">Đăng nhập</a>
-                <a href="<?php echo BASE_URL;?>/register" class="smoothScroll">Đăng ký</a>
+                <a href="<?php echo BASE_URL;?>" class="smoothScroll"><?php echo $this->headers['menu_home'];?></a>
+                <a href="<?php echo BASE_URL;?>/about" class="smoothScroll"><?php echo $this->headers['menu_about'];?></a>
+                <a href="<?php echo BASE_URL;?>/login" class="smoothScroll"><?php echo $this->headers['menu_login'];?></a>
+                <a href="<?php echo BASE_URL;?>/register" class="smoothScroll"><?php echo $this->headers['menu_register'];?></a>
             </div>
             
             <!-- Menu button -->
