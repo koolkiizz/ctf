@@ -1,0 +1,49 @@
+<section id="competitions">
+	<h1><?php echo $this->language->_("Competitions_page_title");?></h1>
+	<hr>
+	<div class="competitions_note">
+		<?php echo $this->language->_("Competitions_page_note");?>
+	</div>
+	<div class="competitions_achives">
+		<?php
+		foreach($this->competitions as $competition):
+		?>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<?php echo $competition['name'];?>
+				</div>
+				<div class="panel-body">
+					<?php echo $competition['description'];?>
+				</div>
+				<div class="panel-footer" style="text-align:right;">
+					<?php if($this->isLogin): ?>
+						<?php if(strtotime($competition['time_end']) > strtotime("now")): ?>
+							<?php
+								$explode = explode(';', $this->user->competition);
+								$check = true;
+								foreach($explode as $a) {
+									if($competition['id'] == $a) {
+										$check = false;
+										break;
+									}
+								}
+								if($check): ?>
+							<a href="<?php echo BASE_URL;?>/competitions/join/id/<?php echo $competition['id'];?>">
+								<button type="button" class="btn btn-info">
+									<?php echo $this->language->_("Competitions_page_join_btn");?>
+								</button>
+							</a>
+							<?php else: ?>
+								Already a competitor!
+							<?php endif; ?>
+						<?php else: ?>
+							This competition has finished!
+						<?php endif;?>
+					<?php else: ?>
+					<a href="<?php echo BASE_URL;?>/login"><?php echo $this->language->_("Competitions_page_must_login");?></a>
+					<?php endif;?>
+				</div>
+			</div>
+		<?php endforeach;?>
+	</div>
+</section>

@@ -27,6 +27,8 @@ $config_base_url = new Zend_Config_Ini(
         APPLICATION_PATH . '/configs/application.ini', 'custom');
 $baseUrl = $config_base_url->baseHttp;
 define('BASE_URL', $baseUrl);
+$timezone = $config_base_url->timezone;
+date_default_timezone_set($timezone);
 
 $application->bootstrap()
             ->run();

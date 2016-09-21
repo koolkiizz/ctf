@@ -1,0 +1,16 @@
+<section>
+    <div class="form-login">
+        <?php if(!isset($this->successful)) : ?>
+            <?php if(isset($this->message)) {
+                echo '<div class="alert alert-danger">'.$this->message.'</div>';
+            } 
+        ?>
+        <h1 align="center"><?php echo $this->form_title;?></h1>
+        <?php echo $this->form;?>
+        <p align="center"><?php echo $this->language->_("Login_page_below_form");?> <a href="<?php echo BASE_URL;?>/register"><?php echo $this->language->_("Login_page_below_form_register");?></a></p>
+        <?php else: 
+            echo '<div class="alert alert-success">'.$this->successful.'</div>';
+            endif;
+        ?>
+    </div>
+</section>

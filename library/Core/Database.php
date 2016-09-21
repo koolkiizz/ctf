@@ -13,7 +13,8 @@ class Core_Database
             'host' => $config->database->host,
             'username' => $config->database->username,
             'password' => $config->database->password,
-            'dbname' => $config->database->dbname
+            'dbname' => $config->database->dbname,
+            'charset' => 'utf8'
         ];
         //debug 4
         // print_r($database);
@@ -23,10 +24,14 @@ class Core_Database
             $db->getConnection();
             //debug 5
             //die("Database Connection is ok!");
+            $db->getProfiler()->setEnabled(true);
             return $db;
         } catch(Zend_db_Adapter_Exception $es)
         {
             die("Failed to connect database!");
+        }
+        finally {
+            $db->getProfiler()->setEnabled(false);
         }
     }
     

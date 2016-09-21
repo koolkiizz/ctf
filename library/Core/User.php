@@ -14,5 +14,6 @@ class Core_User
 	public $competition; //9
 	public $level; // 10
 	public $token; //11
+	public $last_competition; //12
 }
 

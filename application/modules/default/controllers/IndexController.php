@@ -19,6 +19,7 @@ class Default_IndexController extends Core_Controller
     public function indexAction()
     {
         // action body
+        parent::init();
         $this->view->header_main_title = $this->config->site_name;
     }
 

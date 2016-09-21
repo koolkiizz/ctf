@@ -1,0 +1,10 @@
+#competitions .competitions_note {
+	text-align: justify;
+	font-size: 16px;
+}
+#competitions h1 {
+	text-transform: uppercase;
+}
+#competitions .competitions_achives {
+	margin-top: 20px;
+}

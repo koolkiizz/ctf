@@ -66,24 +66,54 @@ if(isset($this->headers['custom_meta']) && $this->headers['custom_meta'] != '')
 echo $this->headMeta();
 ?>
 </head>
-<body data-spy="scroll" data-offset="0" data-target="#theMenu" style="<?php if($this->bg == 1): ?>background: url(/images/asian_girl_background.png) no-repeat center top; <?php else: ?>background: #000 url(/images/programming-wallpaper-1920x1080.png) no-repeat center top; <?php endif;?>background-size: 100%;">
-
-    <?php if($this->bg == 1): ?><div class="wrapper"><?php endif;?>
-    <div class="wrapper_body">
-        <!-- Menu -->
-        <nav class="menu" id="theMenu">
-            <div class="menu-wrap">
-                <h1 class="logo"><a href="<?php echo BASE_URL;?>"><?php echo $this->headers['site_name'];?></a></h1>
-                <i class="fa fa-times menu-close" aria-hidden="true"></i>
-                <a href="<?php echo BASE_URL;?>" class="smoothScroll"><?php echo $this->headers['menu_home'];?></a>
-                <a href="<?php echo BASE_URL;?>/about" class="smoothScroll"><?php echo $this->headers['menu_about'];?></a>
+<body data-spy="scroll" data-offset="0" data-target="#theMenu" style="<?php if($this->bg == 1): ?>background: url(/images/asian_girl_background.png) no-repeat center top; <?php else: ?>background: #ECECEC; <?php endif;?>background-size: 100%;">
+    <!-- Menu -->
+    <div class="asdf">
+    </div>
+    <nav class="menu" id="theMenu">
+        <div class="menu-wrap">
+            <h1 class="logo"><a href="<?php echo BASE_URL;?>"><?php echo $this->headers['site_name'];?></a></h1>
+            <i class="fa fa-times menu-close" aria-hidden="true"></i>
+            <a href="<?php echo BASE_URL;?>" class="smoothScroll"><?php echo $this->headers['menu_home'];?></a>
+            <a href="<?php echo BASE_URL;?>/about" class="smoothScroll"><?php echo $this->headers['menu_about'];?></a>
+            <a href="<?php echo BASE_URL;?>/competitions" class="smoothScroll"><?php echo $this->headers['menu_competitions'];?></a>
+            <?php if(!$this->isLogin): ?>
                 <a href="<?php echo BASE_URL;?>/login" class="smoothScroll"><?php echo $this->headers['menu_login'];?></a>
                 <a href="<?php echo BASE_URL;?>/register" class="smoothScroll"><?php echo $this->headers['menu_register'];?></a>
-            </div>
-            
-            <!-- Menu button -->
-            <div id="menuToggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
-        </nav>
+            <?php else: ?>
+                <a href="#" class="smoothScroll"><?php echo $this->user->username;?></a>
+                <a href="<?php echo BASE_URL;?>/profile" class="smoothScroll submenu"><?php echo $this->headers['menu_profile'];?></a>
+                <a href="<?php echo BASE_URL;?>/competition" class="smoothScroll submenu"><?php echo $this->headers['menu_competition'];?></a>
+                <a href="<?php echo BASE_URL;?>/logout" class="smoothScroll submenu"><?php echo $this->headers['menu_logout'];?></a>
+                
+                <span class="menu-bottom">
+                <?php if(count($this->competition) > 0): ?>
+                    <select class="form-control" id="user_competitions">
+                        <?php
+                        foreach($this->competition as $id => $competition) {
+                            echo '<option value="'.$id.'"';
+                            if($this->user->last_competition == $id) {
+                                echo ' selected ';
+                            }
+                            echo '>'.$competition['name'].'</option>';
+                        }
+                        ?>
+                    </select>
+                    <?php else: ?>
+                        No Competition
+                    <?php endif;?>
+                </span>
+                
+
+            <?php endif; ?>
+        </div>
+        
+        <!-- Menu button -->
+        <div id="menuToggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+    </nav>
+    <?php if($this->bg == 1): ?><div class="wrapper"><?php endif;?>
+    <div class="wrapper_body">
+        
         <?php echo $this->layout()->content;?>
 	</div>
 	<footer>

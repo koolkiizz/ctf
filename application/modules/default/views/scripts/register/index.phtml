@@ -1,12 +1,19 @@
-<section>
+<section class="clearfix">
+    <div class="note-register">
+        <h1><?php echo $this->headers['site_name'];?></h1>
+        <div class="note-content">
+            Bầu trời buổi sớm thật là trong lành.Những cô mây dậy sớm để lên núi dạo chơi. Các em bé sương tinh nghịch đang nhảy nhót trên những chiếc lá non.Ông mặt trời đứng dậy vươn vai sau một giấc ngử dài. Còn chị gió thì mải miết rong chơi và nô đùa cùng hoa […] phan tich an y man doi thoai giua hon truong ba va xac hang thit, suy nghĩ về đời sống tình cảm gia đình trong chiến tranh qua truyện ngắn chiếc lược ngà, Csuy nghĩ của em về đức tính tự tin, hien tai la nguyen khi cua quoc gia, soạn lòng yêu nước, Van mau bai rung xa nu, ta ve mua xuan, bai van chung jminh cau tuc ngu that bai la me thanh conh, phan tich doan tholop lop may cao cung nho nhatrang giang cua huy can
+        </div>
+    </div>
     <div class="form-register">
         <?php if(!isset($this->successful)) : ?>
             <?php if(isset($this->message)) {
                 echo '<div class="alert alert-danger">'.$this->message.'</div>';
             } 
         ?>
-        <h1 align="center">ĐĂNG KÝ</h1>
+        <h1 align="center"><?php echo $this->form_title;?></h1>
         <?php echo $this->form;?>
+        <p align="center"><?php echo $this->language->_("Register_page_below_form");?> <a href="<?php echo BASE_URL;?>/login"><?php echo $this->language->_("Register_page_below_form_login");?></a></p>
         <?php else: 
             echo '<div class="alert alert-success">'.$this->successful.'</div>';
             endif;
